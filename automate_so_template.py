@@ -271,7 +271,7 @@ def process_thermofisher(pdf_path, db_path, log_widget):
             return any(kw in line for kw in PAGE_NOISE)
 
         # J 物料码正则：后缀允许字母、数字、# 等符号
-        J_CODE_RE = re.compile(r'\b(J[A-Z0-9]+-[A-Z0-9#@.]+)\b')
+        J_CODE_RE = re.compile(r'\b([A-Z][A-Z0-9]{5,}-[A-Z0-9#@.]+|[0-9]{6,}-[A-Z0-9#@.]+)\b')
 
         items = []
         for idx, line in enumerate(all_lines):
